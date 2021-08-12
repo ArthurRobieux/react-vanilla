@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="react.css" />
+  </head>
+  <body>
+    <h1>Mon application</h1>
+    <div>Bienvenue, ici je suis dans le HTML classique</div>
+
+    <div id="app" class="container"></div>
+    <div id="app2" class="container"></div>
+
+    <script src="./react.js"></script>
+
+    <script type="text/babel">
+      const Component2 = () => {
+        const [count, setCount] = React.useState(0);
+        return (
+          <>
+            <div class="title">
+              Je suis Component2. Composant React JSX, instancié dans #app2.
+            </div>
+            <div>Count = {count}</div>
+            <button onClick={() => setCount(count - 1)}>-1</button>
+            <button onClick={() => setCount(count + 1)}>+1</button>
+          </>
+        );
+      };
+      ReactDOM.render(
+        React.createElement(Component2),
+        document.querySelector("#app2")
+      );
+    </script>
+  </body>
+</html>
